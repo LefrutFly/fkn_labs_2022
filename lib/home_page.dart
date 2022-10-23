@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'ChooseHeroTitleWidget .dart';
-import 'HeroScrollPanel.dart';
-import 'MarvelLogoWidget.dart';
+import 'choose_hero_title_widget .dart';
+import 'hero_scroll_panel.dart';
+import 'marvel_logo_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -18,9 +18,9 @@ class HomePage extends StatelessWidget {
             margin: const EdgeInsets.only(top: 20, bottom: 50),
             child: Column(
                 children: const <Widget>[
-                  Expanded(flex: 1, child: MarvelLogoWidget()),
-                  Expanded(flex: 1, child: ChooseHeroTitleWidget()),
-                  Expanded(flex: 10, child: HeroScrollPanel()),
+                  MarvelLogoWidget(),
+                  ChooseHeroTitleWidget(),
+                  Expanded(flex: 8, child: HeroScrollPanel()),
                 ]),
           ),
         ),
