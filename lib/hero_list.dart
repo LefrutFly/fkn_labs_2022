@@ -1,21 +1,21 @@
-class Hero {
+class HeroData {
   final String name;
   final String linkToImage;
   final String info;
 
-  const Hero(this.name, this.linkToImage, this.info);
+  const HeroData(this.name, this.linkToImage, this.info);
 }
 
-const captainAmerica = Hero('Captain America', 'assets/capAmerica.jpg', '',);
-const deadpool = Hero('Deadpool', 'assets/deadpool.jpg', '');
-const doctorStrange = Hero('Doctor Strange', 'assets/doctorStrange.jpg', '');
-const ironMan = Hero('Iron Man', 'assets/ironman.jpg', '');
-const spiderman = Hero('Spiderman', 'assets/spiderMan.jpg', '');
-const thanos = Hero('Thanos', 'assets/tanos.jpg', '');
-const thor = Hero('Thor', 'assets/tor.jpg', '');
+const captainAmerica = HeroData('Captain America', 'assets/capAmerica.jpg', '',);
+const deadpool = HeroData('Deadpool', 'assets/deadpool.jpg', '');
+const doctorStrange = HeroData('Doctor Strange', 'assets/doctorStrange.jpg', '');
+const ironMan = HeroData('Iron Man', 'assets/ironman.jpg', '');
+const spiderman = HeroData('Spiderman', 'assets/spiderMan.jpg', '');
+const thanos = HeroData('Thanos', 'assets/tanos.jpg', '');
+const thor = HeroData('Thor', 'assets/tor.jpg', '');
 
 
-const List<Hero> heroList = [
+const List<HeroData> heroList = [
   captainAmerica,
   deadpool,
   doctorStrange,
