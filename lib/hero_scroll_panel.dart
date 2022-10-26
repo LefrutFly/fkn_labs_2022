@@ -10,7 +10,7 @@ class HeroScrollPanel extends StatelessWidget {
   Widget build(BuildContext context) => Center(
         child: CarouselSlider.builder(
           options: CarouselOptions(
-            height: 1000,
+            height: double.infinity,
             enlargeCenterPage: true,
             enableInfiniteScroll: false,
           ),

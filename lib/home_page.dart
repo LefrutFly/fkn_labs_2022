@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
                 children: const <Widget>[
                   MarvelLogoWidget(),
                   ChooseHeroTitleWidget(),
-                  Expanded(flex: 8, child: HeroScrollPanel()),
+                  Expanded(child: HeroScrollPanel()),
                 ]),
           ),
         ),
