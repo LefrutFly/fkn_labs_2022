@@ -7,8 +7,7 @@ class HeroScrollPanel extends StatelessWidget {
   const HeroScrollPanel({super.key});
 
   @override
-  Widget build(BuildContext context) =>
-      Center(
+  Widget build(BuildContext context) => Center(
         child: CarouselSlider.builder(
           options: CarouselOptions(
             height: double.infinity,
@@ -18,37 +17,27 @@ class HeroScrollPanel extends StatelessWidget {
           itemCount: heroList.length,
           itemBuilder: (context, index, realIndex) {
             final urlImage = heroList[index].linkToImage;
-            return buildPanel(context, urlImage, index);
+            return HeroAnimation(urlImage: urlImage, index: index);
           },
         ),
       );
+}
 
-  Widget buildPanel(BuildContext context, String urlImage, int index) =>
-      InkWell(
-        onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute<void>(
-              builder: (context) {
-                return Scaffold(
-                    body: Hero(
-                      tag: 'flippers',
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage(urlImage),
-                          ),
-                        color: Colors.grey,
-                        ),
-                      ),
-                    ),
-                );
-              },
-            ),
-          );
-        },
-        child: Hero(
-          tag: 'flippers',
+class HeroPanel extends StatelessWidget {
+  const HeroPanel(
+      {super.key, required this.urlImage, required this.index, this.onTap});
+
+  final String urlImage;
+  final int index;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Hero(
+      tag: 'heroPanel',
+      child: Material(
+        child: InkWell(
+          onTap: onTap,
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -67,7 +56,9 @@ class HeroScrollPanel extends StatelessWidget {
             ]),
           ),
         ),
-      );
+      ),
+    );
+  }
 
   Widget chooseName(int index) {
     var name = heroList[index].name;
@@ -75,6 +66,63 @@ class HeroScrollPanel extends StatelessWidget {
       name,
       style: const TextStyle(
           fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
+    );
+  }
+}
+
+class HeroAnimation extends StatelessWidget {
+  const HeroAnimation({super.key, required this.urlImage, required this.index});
+
+  final String urlImage;
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    return HeroPanel(
+      urlImage: urlImage,
+      index: index,
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute<void>(builder: (context) {
+          return HeroDataPanel(
+            urlImage: urlImage,
+            index: index,
+            onTap: () {
+              Navigator.of(context).pop();
+            },
+          );
+        }));
+      },
+    );
+  }
+}
+
+class HeroDataPanel extends StatelessWidget {
+  const HeroDataPanel(
+      {super.key, required this.urlImage, required this.index, this.onTap});
+
+  final String urlImage;
+  final int index;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Hero(
+      tag: 'heroPanel',
+      child: Material(
+        child: InkWell(
+          onTap: onTap,
+          child: Scaffold(
+            body: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(urlImage),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
