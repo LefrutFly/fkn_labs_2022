@@ -49,10 +49,8 @@ class HeroInfoPanel extends StatelessWidget {
                           style: h2TextStyle,
                         ),
                       ),
-                      const FittedBox(
-                        child: SizedBox(
-                          height: 10,
-                        ),
+                      const SizedBox(
+                        height: 10,
                       ),
                       FittedBox(
                         child: Text(
