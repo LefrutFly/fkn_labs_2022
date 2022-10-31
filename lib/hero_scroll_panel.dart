@@ -17,8 +17,7 @@ class HeroScrollPanel extends StatelessWidget {
           ),
           itemCount: heroList.length,
           itemBuilder: (context, index, realIndex) {
-            final urlImage = heroList[index].linkToImage;
-            return HeroAnimation(urlImage: urlImage, index: index);
+            return HeroAnimation(index: index);
           },
         ),
       );

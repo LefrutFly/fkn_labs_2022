@@ -4,9 +4,8 @@ import 'hero_list.dart';
 
 class HeroPanel extends StatelessWidget {
   const HeroPanel(
-      {super.key, required this.urlImage, required this.index, this.onTap});
+      {super.key, required this.index, this.onTap});
 
-  final String urlImage;
   final int index;
   final VoidCallback? onTap;
 
@@ -20,7 +19,7 @@ class HeroPanel extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: AssetImage(urlImage),
+                image: AssetImage(heroList[index].linkToImage),
               ),
               borderRadius: BorderRadius.circular(15),
               color: Colors.black,

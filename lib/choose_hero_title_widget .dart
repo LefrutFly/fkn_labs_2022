@@ -7,8 +7,6 @@ class ChooseHeroTitleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => const Padding(
         padding: EdgeInsets.only(bottom: 60),
-        child: FittedBox(
-          child: Text('Choose your hero',
-              style: h1TextStyle)),
-        );
+        child: FittedBox(child: Text('Choose your hero', style: h1TextStyle)),
+      );
 }

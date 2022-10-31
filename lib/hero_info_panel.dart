@@ -4,10 +4,8 @@ import 'package:flutter/material.dart';
 import 'hero_list.dart';
 
 class HeroInfoPanel extends StatelessWidget {
-  const HeroInfoPanel(
-      {super.key, required this.urlImage, required this.index, this.onTap});
+  const HeroInfoPanel({super.key, required this.index, this.onTap});
 
-  final String urlImage;
   final int index;
   final VoidCallback? onTap;
 
