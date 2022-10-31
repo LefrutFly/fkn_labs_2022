@@ -14,9 +14,6 @@ class HeroInfoPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Hero(
         tag: 'heroPanel',
-        child: Material(
-          child: InkWell(
-            onTap: onTap,
             child: Scaffold(
               body: Container(
                 decoration: BoxDecoration(
@@ -25,33 +22,45 @@ class HeroInfoPanel extends StatelessWidget {
                     image: AssetImage(urlImage),
                   ),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(40),
-                  child: SizedBox(
-                    width: double.infinity,
-                    height: double.infinity,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      verticalDirection: VerticalDirection.up,
-                      children: <Widget>[
-                        Text(
-                          heroList[index].info,
-                          style: h2TextStyle,
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          heroList[index].name,
-                          style: h1TextStyle,
-                        ),
-                      ],
+                child: Stack(children: <Widget>[
+                  Container(
+                    alignment: Alignment.topLeft,
+                    padding: const EdgeInsets.all(20),
+                    child: IconButton(
+                      onPressed: onTap,
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                ),
+                  //todo: сделать скейлинг текста от размера экрана
+                  Padding(
+                    padding: const EdgeInsets.all(40),
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        verticalDirection: VerticalDirection.up,
+                        children: <Widget>[
+                          Text(
+                            heroList[index].info,
+                            style: h2TextStyle,
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            heroList[index].name,
+                            style: h1TextStyle,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ]),
               ),
             ),
-          ),
-        ),
       );
 }
