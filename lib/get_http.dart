@@ -1,24 +1,22 @@
+import 'package:application/hero_data_builder.dart';
 import 'package:application/keys.dart';
 import 'package:dio/dio.dart';
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
 
+import 'hero_list.dart';
+
 void getHttp() async {
-  try {
-    final ts = generateTS();
-    final hash = generateHASH(ts, privateKey, publicKey);
-    var response = await Dio()
-        .get('http://gateway.marvel.com/v1/public/comics', queryParameters: {
-      'ts': ts,
-      'apikey': publicKey,
-      'hash': hash,
-    });
-    final decode = jsonDecode(response.data);
-    final s = decode['data']['results'].toString();
-    print(s);
-  } catch (e) {
-    print(e);
-  }
+  final heroDataBuilder = HeroDataBuilder();
+  final ts = generateTS();
+  final hash = generateHASH(ts, privateKey, publicKey);
+  Response response = await Dio()
+      .get('http://gateway.marvel.com/v1/public/characters', queryParameters: {
+    'ts': ts,
+    'apikey': publicKey,
+    'hash': hash,
+  });
+  heroList = heroDataBuilder.build(response);
 }
 
 String generateMd5(String input) {

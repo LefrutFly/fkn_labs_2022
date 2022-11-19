@@ -30,11 +30,11 @@ const thanos = HeroData('Thanos', 'assets/tanos.jpg', 'I am Thanos',
 const thor = HeroData('Thor', 'assets/tor.jpg', 'I am Thor',
     'https://i.pinimg.com/originals/de/00/f0/de00f05e5851383e9fe05a070947633f.jpg');
 
-const List<HeroData> heroList = [
-  captainAmerica,
-  doctorStrange,
-  ironMan,
-  spiderman,
-  thanos,
-  thor,
+List<HeroData> heroList = [
+  //captainAmerica,
+  //doctorStrange,
+  //ironMan,
+  //spiderman,
+  //thanos,
+  //thor,
 ];
