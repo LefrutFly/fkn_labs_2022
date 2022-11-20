@@ -1,10 +1,10 @@
+import 'package:application/text_styles.dart';
 import 'package:flutter/material.dart';
 
 import 'hero_list.dart';
 
 class HeroPanel extends StatelessWidget {
-  const HeroPanel(
-      {super.key, required this.index, this.onTap});
+  const HeroPanel({super.key, required this.index, this.onTap});
 
   final int index;
   final VoidCallback? onTap;
@@ -40,10 +40,6 @@ class HeroPanel extends StatelessWidget {
 
   Widget chooseName(int index) {
     var name = heroList[index].name;
-    return Text(
-      name,
-      style: const TextStyle(
-          fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
-    );
+    return Text(name, style: h1TextStyle);
   }
 }

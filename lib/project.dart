@@ -15,7 +15,7 @@ class Project {
       build(response);
       runApp(const HomePage());
     } catch (e) {
-      print(e);
+      throw Exception(e);
     }
   }
 

@@ -41,11 +41,9 @@ class HeroInfoPanel extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     verticalDirection: VerticalDirection.up,
                     children: <Widget>[
-                      FittedBox(
-                        child: Text(
-                          heroList[index].info,
-                          style: h2TextStyle,
-                        ),
+                      Text(
+                        heroList[index].info,
+                        style: h2TextStyle,
                       ),
                       const SizedBox(
                         height: 10,
