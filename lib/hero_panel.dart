@@ -19,7 +19,7 @@ class HeroPanel extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: AssetImage(heroList[index].linkToImage),
+                image: NetworkImage(heroList[index].linkToImage),
               ),
               borderRadius: BorderRadius.circular(15),
               color: Colors.black,

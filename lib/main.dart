@@ -1,6 +1,3 @@
-import 'package:application/get_http.dart';
-import 'package:flutter/material.dart';
+import 'Project.dart';
 
-import 'home_page.dart';
-
-void main() => getHttp();//runApp(const HomePage());
+void main() => Project().start();

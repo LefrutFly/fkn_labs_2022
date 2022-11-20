@@ -1,15 +1,21 @@
-import 'dart:convert';
-
-import 'package:application/hero_list.dart';
 import 'package:dio/dio.dart';
+
+import 'hero_data.dart';
 
 class HeroDataBuilder {
   List<HeroData> build(Response response) {
     List<HeroData> heroList = [];
     final decode = response.data;
-    final s = decode['data']['results'];
-    for(var hero in s){
-      print(hero['name']);
+    final heroes = decode['data']['results'];
+    for(var hero in heroes){
+      String name = hero['name'];
+      String img = hero['thumbnail']['path'] + '.' + hero['thumbnail']['extension'];
+      String info = hero['description'];
+      if(info == '') {
+        info = '  ';
+      }
+      final newHero = HeroData(name, img, info, img);
+      heroList.add(newHero);
     }
     return heroList;
   }
