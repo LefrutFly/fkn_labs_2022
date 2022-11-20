@@ -11,7 +11,7 @@ class HeroInfoPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Hero(
-        tag: 'heroPanel',
+        tag: heroList[index].name,
         child: Scaffold(
           body: Container(
             decoration: BoxDecoration(

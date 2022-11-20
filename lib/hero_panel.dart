@@ -11,7 +11,7 @@ class HeroPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Hero(
-        tag: 'heroPanel',
+        tag: heroList[index].name,
         child: Material(
           borderRadius: BorderRadius.circular(15),
           color: Colors.grey,
