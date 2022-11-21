@@ -1,3 +1,4 @@
+import 'package:application/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class ChooseHeroTitleWidget extends StatelessWidget {
@@ -6,12 +7,6 @@ class ChooseHeroTitleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => const Padding(
         padding: EdgeInsets.only(bottom: 60),
-        child: FittedBox(
-          child: Text('Choose your hero',
-              style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white)),
-        ),
+        child: FittedBox(child: Text('Choose your hero', style: h1TextStyle)),
       );
 }

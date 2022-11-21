@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.black87,
           body: Container(
             margin: const EdgeInsets.only(top: 20, bottom: 50),
-            child: Column(
+            child: Column(          
                 children: const <Widget>[
                   MarvelLogoWidget(),
                   ChooseHeroTitleWidget(),
