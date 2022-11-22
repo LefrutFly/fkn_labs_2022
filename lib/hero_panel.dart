@@ -1,11 +1,13 @@
 import 'package:application/text_styles.dart';
 import 'package:flutter/material.dart';
 
-import 'hero_list.dart';
+import 'hero_data.dart';
 
 class HeroPanel extends StatelessWidget {
-  const HeroPanel({super.key, required this.index, this.onTap});
+  const HeroPanel(
+      {super.key, required this.index, this.onTap, required this.heroList});
 
+  final List<HeroData> heroList;
   final int index;
   final VoidCallback? onTap;
 
