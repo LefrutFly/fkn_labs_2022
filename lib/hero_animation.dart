@@ -5,21 +5,18 @@ import 'hero_info_panel.dart';
 import 'hero_panel.dart';
 
 class HeroAnimation extends StatelessWidget {
-  const HeroAnimation({super.key, required this.index, required this.heroList});
+  const HeroAnimation({super.key, required this.heroData});
 
-  final List<HeroData> heroList;
-  final int index;
+  final HeroData heroData;
 
   @override
   Widget build(BuildContext context) {
     return HeroPanel(
-      heroList: heroList,
-      index: index,
+      heroData: heroData,
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute<void>(builder: (context) {
           return HeroInfoPanel(
-            heroList: heroList,
-            index: index,
+            heroData: heroData,
             onTap: () {
               Navigator.of(context).pop();
             },

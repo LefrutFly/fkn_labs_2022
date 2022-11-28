@@ -5,10 +5,9 @@ import 'hero_data.dart';
 
 class HeroPanel extends StatelessWidget {
   const HeroPanel(
-      {super.key, required this.index, this.onTap, required this.heroList});
+      {super.key, required this.heroData, this.onTap});
 
-  final List<HeroData> heroList;
-  final int index;
+  final HeroData heroData;
   final VoidCallback? onTap;
 
   @override
@@ -21,7 +20,7 @@ class HeroPanel extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: NetworkImage(heroList[index].linkToImage),
+                image: NetworkImage(heroData.linkToImage),
               ),
               borderRadius: BorderRadius.circular(15),
               color: Colors.black,
@@ -32,7 +31,7 @@ class HeroPanel extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 20),
                   alignment: Alignment.bottomCenter,
-                  child: FittedBox(child: chooseName(index)),
+                  child: FittedBox(child: chooseName()),
                 ),
               ]),
             ),
@@ -40,8 +39,8 @@ class HeroPanel extends StatelessWidget {
         ),
       );
 
-  Widget chooseName(int index) {
-    var name = heroList[index].name;
+  Widget chooseName() {
+    var name = heroData.name;
     return Text(name, style: h1TextStyle);
   }
 }
