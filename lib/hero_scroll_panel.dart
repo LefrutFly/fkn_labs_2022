@@ -2,10 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import 'hero_animation.dart';
-import 'hero_list.dart';
+import 'hero_data.dart';
 
 class HeroScrollPanel extends StatelessWidget {
-  const HeroScrollPanel({super.key});
+  const HeroScrollPanel({super.key, required this.heroList});
+
+  final List<HeroData> heroList;
 
   @override
   Widget build(BuildContext context) => Center(
@@ -17,7 +19,9 @@ class HeroScrollPanel extends StatelessWidget {
           ),
           itemCount: heroList.length,
           itemBuilder: (context, index, realIndex) {
-            return HeroAnimation(index: index);
+            return HeroAnimation(
+              heroData: heroList[index],
+            );
           },
         ),
       );

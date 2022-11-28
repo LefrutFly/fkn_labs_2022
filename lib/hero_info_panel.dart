@@ -1,12 +1,13 @@
 import 'package:application/text_styles.dart';
 import 'package:flutter/material.dart';
 
-import 'hero_list.dart';
+import 'hero_data.dart';
 
 class HeroInfoPanel extends StatelessWidget {
-  const HeroInfoPanel({super.key, required this.index, this.onTap});
+  const HeroInfoPanel(
+      {super.key, required this.heroData, this.onTap});
 
-  final int index;
+  final HeroData heroData;
   final VoidCallback? onTap;
 
   @override
@@ -17,7 +18,7 @@ class HeroInfoPanel extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: NetworkImage(heroList[index].linkToInfoPanelImage),
+                image: NetworkImage(heroData.linkToInfoPanelImage),
               ),
             ),
             child: Stack(children: <Widget>[
@@ -41,18 +42,16 @@ class HeroInfoPanel extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     verticalDirection: VerticalDirection.up,
                     children: <Widget>[
-                      FittedBox(
-                        child: Text(
-                          heroList[index].info,
-                          style: h2TextStyle,
-                        ),
+                      Text(
+                        heroData.info,
+                        style: h2TextStyle,
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       FittedBox(
                         child: Text(
-                          heroList[index].name,
+                          heroData.name,
                           style: h1TextStyle,
                         ),
                       ),

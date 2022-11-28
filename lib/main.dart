@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
+import 'Project.dart';
 
-import 'home_page.dart';
-
-void main() => runApp(const HomePage());
+void main() => Project().start();
